@@ -5,7 +5,9 @@ window_app = tkinter.Tk()
 window_app.geometry("400x400")
 window_app.title("PassGenerator")
 window_app.iconbitmap("key.ico")
+  
 
+  
 label_nick = tkinter.Label(window_app, text="Nick de registro")
 label_nick.place(relwidth=1, relheight=1)
 label_nick.pack()
