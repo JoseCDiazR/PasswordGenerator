@@ -1,12 +1,9 @@
-from methods import generate_pass
+from methods import main_action
 import tkinter
 #Create window and edit
 
-def set_text(entry,text):
-    entry.set(text)
-
-def get_text(entry):
-    return entry.get
+def start():
+    main_action(textarea_nick,textarea_character,data_symbols,data_numbers,window_app)
 
 window_app = tkinter.Tk()
 window_app.geometry("400x350")
@@ -27,23 +24,21 @@ textarea_character = tkinter.Entry(window_app,font="Arial 18")
 textarea_character.pack()
 textarea_character.place(x=75, y=100)
 
-textarea_password = tkinter.Entry(window_app,font="Arial 18")
-textarea_password.configure(state="disabled")
-textarea_password.pack()
-textarea_password.place(x=75,y=240)
-textarea_password.setvar
 
-cb_simbols = tkinter.Checkbutton(window_app,text="Symbols")
+data_symbols = tkinter.IntVar
+cb_simbols = tkinter.Checkbutton(window_app,text="Symbols",variable= data_symbols,onvalue=1, offvalue=0)
 cb_simbols.pack()
 cb_simbols.place(x=75,y=160)
-cb_numbers = tkinter.Checkbutton(window_app,text="Numbers")
+data_numbers = tkinter.IntVar
+cb_numbers = tkinter.Checkbutton(window_app,text="Numbers",variable= data_numbers,onvalue=1, offvalue=0)
 cb_numbers.pack()
 cb_numbers.place(x=75+25*len('Symbols'),y=160)
 
-button_generate = tkinter.Button(window_app, text="Generar", command= "a")
+button_generate = tkinter.Button(window_app, text="Generar", 
+                            command= start)
 button_generate.pack()
 button_generate.place(x=180,y=200)
-print(generate_pass("jose",12,True,True))
+
 window_app.mainloop()
 
 
