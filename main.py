@@ -3,7 +3,13 @@ import tkinter
 #Create window and edit
 
 def start():
-    main_action(textarea_nick,textarea_character,data_symbols,data_numbers,window_app)
+    main_action(textarea_nick,textarea_character,get_symbol_button(),get_nums_button(),window_app)
+def get_symbol_button():
+    return data_symbols.get()
+def get_nums_button():
+    return data_numbers.get()
+
+
 
 window_app = tkinter.Tk()
 window_app.geometry("400x350")
@@ -25,11 +31,11 @@ textarea_character.pack()
 textarea_character.place(x=75, y=100)
 
 
-data_symbols = tkinter.IntVar
+data_symbols = tkinter.IntVar()
 cb_simbols = tkinter.Checkbutton(window_app,text="Symbols",variable= data_symbols,onvalue=1, offvalue=0)
 cb_simbols.pack()
 cb_simbols.place(x=75,y=160)
-data_numbers = tkinter.IntVar
+data_numbers = tkinter.IntVar()
 cb_numbers = tkinter.Checkbutton(window_app,text="Numbers",variable= data_numbers,onvalue=1, offvalue=0)
 cb_numbers.pack()
 cb_numbers.place(x=75+25*len('Symbols'),y=160)
