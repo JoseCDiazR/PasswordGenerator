@@ -5,9 +5,10 @@ LOWERCASE_LETTERS = UPPERCASE_LETTERS.lower()
 NUMBERS = "0123456789"
 SYMBOLS = "{|}~[\\]^_`:;<=>?!#$%&\'()*+,-./"
 options = (UPPERCASE_LETTERS,LOWERCASE_LETTERS,)
-
 def create_output(data,interface):
-    label_password = tkinter.Label(interface)
+    label_password = None
+    if label_password:
+        label_password.destroy()
     label_password = tkinter.Label(interface, text=data)
     label_password.configure(state="disabled")
     label_password.pack()
@@ -47,7 +48,7 @@ def get_data (nick,character,symbols,numbers):
     return nick_data,character_data,numbers_data,symbols_data
 
 def main_action (nick,character,symbols,numbers,interface):
-    nick_data,character_data, numbers_data,symbols_data = get_data (nick,character,symbols,numbers)
+    nick_data,character_data, symbols_data,numbers_data = get_data (nick,character,symbols,numbers)
     generate_pass(nick_data,character_data, symbols_data,numbers_data,interface)
 
     
